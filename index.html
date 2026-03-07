@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficina de Projetos 2026 · CGP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Archivo+Black&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --verde-escuro: #0c3b2a;
+    --verde-neon: #b5ff4d;
+    --verde-medio: #1f8a3c;
+    --laranja: #ff5e1a;
+    --laranja-escuro: #e04e0f;
+    --branco: #f8f9fa;
+    --preto: #0a0c0b;
+    --cinza: #1b1f1d;
+    --cinza-claro: #e9ecef;
+    --transicao: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--preto);
+    color: var(--branco);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Tipografia refinada */
+  h1, h2, h3, h4 {
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .section-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--verde-neon);
+    margin-bottom: 1rem;
+    display: inline-block;
+    background: rgba(181, 255, 77, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    border: 1px solid rgba(181, 255, 77, 0.2);
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 2rem;
+    color: white;
+  }
+
+  .section-title span {
+    color: var(--verde-neon);
+    background: rgba(181, 255, 77, 0.1);
+    padding: 0 0.2em;
+    display: inline-block;
+  }
+
+  /* Navbar */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10, 12, 11, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(181, 255, 77, 0.15);
+    padding: 0.8rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .nav-logos {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    transition: var(--transicao);
+  }
+
+  .logo-container:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+
+  .logo-img {
+    height: 25px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+  }
+
+  .nav-sep {
+    width: 1px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-cta {
+    background: var(--verde-neon);
+    color: var(--preto);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: var(--transicao);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    background: var(--laranja);
+    color: white;
+    transform: scale(1.02);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 5% 6rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--verde-escuro) 0%, #0f4a33 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(181, 255, 77, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 94, 26, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    width: fit-content;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+  }
+
+  .hero-badge .dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: var(--laranja);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  .hero-badge span {
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    opacity: 0.9;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(4rem, 15vw, 10rem);
+    line-height: 0.9;
+    color: white;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title .accent {
+    color: var(--verde-neon);
+    -webkit-text-stroke: 2px currentColor;
+    font-style: italic;
+  }
+
+  .hero-title .orange {
+    color: var(--laranja);
+  }
+
+  .hero-sub {
+    max-width: 600px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 1.5rem 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-pill {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .hero-pill.outline {
+    background: transparent;
+    border: 1px solid rgba(181, 255, 77, 0.5);
+    color: var(--verde-neon);
+  }
+
+  /* Contador Regressivo */
+  .countdown-container {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0 2.5rem;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .countdown-value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2.5rem;
+    color: var(--verde-neon);
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--laranja);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: var(--transicao);
+    width: fit-content;
+    position: relative;
+    z-index: 2;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hero-cta-btn::after {
+    content: '→';
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+  }
+
+  .hero-cta-btn:hover {
+    background: var(--verde-neon);
+    color: var(--preto);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 30px -10px rgba(255, 94, 26, 0.3);
+  }
+
+  .hero-cta-btn:hover::after {
+    transform: translateX(5px);
+  }
+
+  .hero-vagas {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    text-align: right;
+    z-index: 1;
+    opacity: 0.7;
+  }
+
+  .hero-vagas-text {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--verde-neon);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-vagas-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--laranja);
+  }
+
+  /* Problem Section */
+  .problem {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, #b5ff4d 0%, #9fe63a 100%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .problem-headline {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    color: var(--verde-escuro);
+  }
+
+  .problem-headline em {
+    color: var(--laranja-escuro);
+    font-style: italic;
+    font-family: 'Archivo', sans-serif;
+  }
+
+  .problem-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--verde-escuro);
+  }
+
+  .problem-text strong {
+    font-weight: 800;
+    text-decoration: underline wavy rgba(255, 94, 26, 0.5);
+  }
+
+  /* Seção Flyers - Simplificada */
+  .flyers {
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, var(--cinza), #1a1f1d);
+  }
+
+  .flyers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .flyer-card {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: var(--transicao);
+    border: 1px solid rgba(181, 255, 77, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .flyer-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--verde-neon);
+    box-shadow: 0 20px 30px -10px rgba(181, 255, 77, 0.2);
+  }
+
+  .flyer-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .flyer-img-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--verde-escuro), #1a5c3a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Cards de Cursos */
+  .cursos {
+    padding: 6rem 5%;
+    background: var(--preto);
+  }
+
+  .cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .curso-card {
+    background: linear-gradient(135deg, var(--cinza), #232725);
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: var(--transicao);
+    border: 1px solid rgba(181, 255, 77, 0.1);
+    position: relative;
+  }
+
+  .curso-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--verde-neon);
+    box-shadow: 0 30px 40px -20px rgba(181, 255, 77, 0.3);
+  }
+
+  .curso-card.featured {
+    border: 2px solid var(--verde-neon);
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(181, 255, 77, 0.2);
+  }
+
+  .curso-card.featured::before {
+    content: '★ DESTAQUE';
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background: var(--laranja);
+    color: white;
+    padding: 0.5rem 3rem;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    z-index: 10;
+  }
+
+  .curso-header {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--verde-escuro), #0f4a33);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .curso-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(181, 255, 77, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+
+  .curso-tipo {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--verde-neon);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .curso-nome {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    color: white;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+  }
+
+  .curso-data {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .curso-body {
+    padding: 2rem;
+  }
+
+  .curso-descricao {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  /* Preços para outros cursos */
+  .precos-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .preco-tipo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: var(--transicao);
+  }
+
+  .preco-tipo:last-child {
+    border-bottom: none;
+  }
+
+  .preco-tipo:hover {
+    color: var(--verde-neon);
+    transform: translateX(5px);
+  }
+
+  .preco-tipo.selected {
+    color: var(--verde-neon);
+  }
+
+  .preco-tipo.selected .preco-valor {
+    background: var(--verde-neon);
+    color: var(--preto);
+  }
+
+  .preco-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .preco-valor {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--verde-neon);
+    padding: 0.2rem 0.8rem;
+    border-radius: 100px;
+    transition: var(--transicao);
+  }
+
+  /* Preço único para Workshop */
+  .preco-unico {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .preco-unico .preco-label {
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--verde-neon);
+  }
+
+  .preco-unico .preco-valor {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--verde-neon);
+    padding: 0.2rem 1rem;
+    border-radius: 100px;
+    transition: var(--transicao);
+  }
+
+  /* QR Code para Workshop */
+  .qr-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .qr-placeholder {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 0.5rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .qr-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--verde-neon);
+    margin-bottom: 0.2rem;
+  }
+
+  .qr-sub {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .curso-btn {
+    width: 100%;
+    background: var(--verde-neon);
+    color: var(--preto);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transicao);
+  }
+
+  .curso-btn:hover {
+    background: var(--laranja);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* CTA Workshop Extra */
+  .cta-workshop {
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, var(--verde-escuro), #0f4a33);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 2px solid var(--verde-neon);
+    border-bottom: 2px solid var(--verde-neon);
+  }
+
+  .cta-workshop::before {
+    content: '★';
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15rem;
+    color: rgba(181, 255, 77, 0.05);
+    font-family: 'Archivo Black', sans-serif;
+    pointer-events: none;
+  }
+
+  .cta-workshop::after {
+    content: '★';
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15rem;
+    color: rgba(255, 94, 26, 0.05);
+    font-family: 'Archivo Black', sans-serif;
+    pointer-events: none;
+  }
+
+  .cta-workshop-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-workshop-info {
+    text-align: left;
+    max-width: 500px;
+  }
+
+  .cta-workshop-titulo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .cta-workshop-titulo span {
+    color: var(--verde-neon);
+  }
+
+  .cta-workshop-texto {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+  }
+
+  .cta-workshop-preco {
+    display: inline-block;
+    background: rgba(181, 255, 77, 0.2);
+    border: 2px solid var(--verde-neon);
+    border-radius: 100px;
+    padding: 0.8rem 2rem;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--verde-neon);
+  }
+
+  .cta-workshop-qr {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    padding: 2rem;
+    text-align: center;
+    min-width: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cta-workshop-qr .qr-placeholder {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+  }
+
+  .cta-workshop-qr .qr-label {
+    font-size: 1rem;
+  }
+
+  .cta-workshop-qr .qr-sub {
+    margin-bottom: 1rem;
+  }
+
+  .cta-workshop-btn {
+    background: var(--laranja);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transicao);
+    width: 100%;
+  }
+
+  .cta-workshop-btn:hover {
+    background: var(--verde-neon);
+    color: var(--preto);
+    transform: translateY(-2px);
+  }
+
+  /* What happens grid */
+  .what-happens {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, var(--cinza), #232725);
+  }
+
+  .duration-badge {
+    display: inline-block;
+    background: var(--laranja);
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    border-radius: 100px;
+    margin-bottom: 3rem;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid rgba(181, 255, 77, 0.15);
+    border-radius: 2rem;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+
+  .item-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(181, 255, 77, 0.1);
+    border-right: 1px solid rgba(181, 255, 77, 0.1);
+    transition: var(--transicao);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .item-row:hover {
+    background: rgba(181, 255, 77, 0.05);
+    transform: scale(1.02);
+  }
+
+  .item-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--verde-neon);
+    flex-shrink: 0;
+    box-shadow: 0 0 15px var(--verde-neon);
+  }
+
+  .item-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Benefits grid */
+  .what-you-get {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, var(--verde-escuro), #0d4a32);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .benefit-item {
+    border-top: 3px solid var(--verde-neon);
+    padding-top: 2rem;
+    transition: var(--transicao);
+  }
+
+  .benefit-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .benefit-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--verde-neon);
+    margin-bottom: 1rem;
+    text-decoration: underline 2px rgba(255, 255, 255, 0.2);
+    text-underline-offset: 0.5rem;
+  }
+
+  .benefit-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* VS Section */
+  .vs-wrapper {
+    position: relative;
+  }
+
+  .vs-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+
+  .vs-left {
+    background: linear-gradient(135deg, var(--verde-escuro), #1a4f35);
+    padding: 5rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vs-right {
+    background: linear-gradient(135deg, var(--verde-neon), #ccff80);
+    padding: 5rem 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vs-left::before {
+    content: '“';
+    position: absolute;
+    bottom: -2rem;
+    right: 2rem;
+    font-size: 20rem;
+    font-family: 'Archivo Black', sans-serif;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+  }
+
+  .vs-right::before {
+    content: '”';
+    position: absolute;
+    top: -2rem;
+    left: 2rem;
+    font-size: 20rem;
+    font-family: 'Archivo Black', sans-serif;
+    color: rgba(13, 59, 43, 0.1);
+    line-height: 1;
+  }
+
+  .vs-label {
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .vs-label.dark {
+    color: rgba(13, 59, 43, 0.6);
+  }
+
+  .vs-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 2;
+  }
+
+  .vs-item.dark {
+    color: var(--verde-escuro);
+    font-weight: 600;
+  }
+
+  .vs-item::before {
+    content: '—';
+    opacity: 0.5;
+    font-weight: 700;
+  }
+
+  .vs-item.dark::before {
+    content: '✓';
+    color: var(--verde-escuro);
+    font-weight: 900;
+    opacity: 1;
+  }
+
+  .vs-quote {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border-radius: 1.5rem;
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--verde-neon);
+    position: relative;
+    z-index: 2;
+  }
+
+  .vs-quote.dark-q {
+    background: rgba(13, 59, 43, 0.2);
+    color: var(--verde-escuro);
+  }
+
+  /* Formadores cards */
+  .formadores {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, var(--cinza), #1f2421);
+  }
+
+  .formadores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .formador-card {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(181, 255, 77, 0.2);
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: var(--transicao);
+  }
+
+  .formador-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--verde-neon);
+    box-shadow: 0 30px 40px -20px rgba(181, 255, 77, 0.3);
+  }
+
+  .formador-img-container {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, var(--verde-escuro), #1a5c3a);
+  }
+
+  .formador-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicao);
+  }
+
+  .formador-card:hover .formador-img {
+    transform: scale(1.05);
+  }
+
+  .formador-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--verde-escuro), #1a5c3a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .formador-info {
+    padding: 1.5rem;
+  }
+
+  .formador-name {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 0.3rem;
+  }
+
+  .formador-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--verde-neon);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .formador-bio {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Depoimentos */
+  .depoimentos {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, var(--verde-escuro), #0f4230);
+  }
+
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .dep-card {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transicao);
+  }
+
+  .dep-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--verde-neon);
+  }
+
+  .dep-card::before {
+    content: '"';
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    font-size: 6rem;
+    font-family: 'Archivo Black', sans-serif;
+    color: rgba(181, 255, 77, 0.1);
+    line-height: 1;
+  }
+
+  .dep-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .dep-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .dep-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--verde-medio), var(--verde-neon));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .dep-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicao);
+  }
+
+  .dep-card:hover .dep-avatar-img {
+    transform: scale(1.1);
+  }
+
+  .dep-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .dep-title-role {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Modal de Inscrição */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .modal {
+    background: linear-gradient(135deg, var(--cinza), #1f2421);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    border: 2px solid var(--verde-neon);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .modal-overlay.active .modal {
+    transform: translateY(0);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transicao);
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .modal-close:hover {
+    color: var(--laranja);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-titulo {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.25rem;
+    padding-right: 2rem;
+  }
+
+  .modal-subtitulo {
+    font-size: 0.9rem;
+    color: var(--verde-neon);
+    margin-bottom: 1rem;
+  }
+
+  .modal-preco {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--verde-neon);
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .modal-pagamento-info {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .modal-pagamento-info .qr-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 0.5rem;
+  }
+
+  .modal-pagamento-info .qr-label {
+    font-size: 0.85rem;
+    color: var(--verde-neon);
+  }
+
+  .modal-pagamento-info .qr-sub {
+    font-size: 0.75rem;
+  }
+
+  .modal-pagamento-info .referencia-box {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+  }
+
+  .modal-pagamento-info .referencia-box p {
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+  }
+
+  .modal-pagamento-info .referencia-box .referencia-valor {
+    color: var(--verde-neon);
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modal-input {
+    padding: 0.8rem 1.2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: white;
+    transition: var(--transicao);
+  }
+
+  .modal-input:focus {
+    outline: none;
+    border-color: var(--verde-neon);
+  }
+
+  .modal-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .modal-btn {
+    background: var(--laranja);
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transicao);
+    margin-top: 0.5rem;
+  }
+
+  .modal-btn:hover {
+    background: var(--verde-neon);
+    color: var(--preto);
+    transform: translateY(-2px);
+  }
+
+  /* Final CTA */
+  .final-cta {
+    padding: 8rem 5%;
+    background: linear-gradient(135deg, var(--laranja), #ff7a3a);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: 'CGP';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Archivo Black', sans-serif;
+    font-size: min(30vw, 25rem);
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .final-cta-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .final-cta-title span {
+    color: var(--verde-escuro);
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0 0.2em;
+  }
+
+  .final-cta-sub {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-cta-btn {
+    display: inline-block;
+    background: var(--verde-escuro);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.2rem 3.5rem;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: var(--transicao);
+    position: relative;
+    z-index: 2;
+    border: 2px solid transparent;
+  }
+
+  .final-cta-btn:hover {
+    background: transparent;
+    color: var(--verde-escuro);
+    border-color: var(--verde-escuro);
+    transform: scale(1.05);
+  }
+
+  /* Footer */
+  footer {
+    padding: 3rem 5%;
+    background: var(--preto);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo-img {
+    height: 25px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: var(--transicao);
+  }
+
+  .footer-logo-img:hover {
+    opacity: 1;
+  }
+
+  .footer-logo-placeholder {
+    height: 32px;
+    width: 32px;
+    background: linear-gradient(135deg, var(--verde-neon), var(--laranja));
+    border-radius: 6px;
+    opacity: 0.7;
+  }
+
+  .footer-copy {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .footer-date {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.2rem;
+    color: rgba(181, 255, 77, 0.3);
+  }
+
+  /* Responsivo */
+  @media (max-width: 1024px) {
+    .cursos-grid, .flyers-grid, .formadores-grid, .dep-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cursos-grid, .flyers-grid, .formadores-grid, .dep-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .problem {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .vs-section {
+      grid-template-columns: 1fr;
+    }
+
+    .items-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-vagas {
+      display: none;
+    }
+
+    .final-cta::before {
+      font-size: 15rem;
+    }
+
+    nav {
+      padding: 1rem 5%;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav-logos {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .logo-img {
+      height: 35px;
+    }
+
+    .nav-cta {
+      width: 100%;
+      text-align: center;
+    }
+
+    .curso-card.featured {
+      transform: scale(1);
+    }
+
+    .modal {
+      max-width: 350px;
+      padding: 1.5rem;
+    }
+
+    .cta-workshop-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .cta-workshop-info {
+      text-align: center;
+    }
+
+    .cta-workshop::before,
+    .cta-workshop::after {
+      font-size: 10rem;
+    }
+
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-logos {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: clamp(3rem, 12vw, 4rem);
+    }
+
+    .hero-cta-btn {
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+    }
+
+    .countdown-container {
+      gap: 0.5rem;
+    }
+
+    .countdown-item {
+      padding: 0.8rem 1rem;
+      min-width: 70px;
+    }
+
+    .countdown-value {
+      font-size: 1.8rem;
+    }
+
+    .modal {
+      max-width: 300px;
+      padding: 1.25rem;
+    }
+
+    .modal-titulo {
+      font-size: 1.25rem;
+    }
+
+    .modal-preco {
+      font-size: 1.75rem;
+    }
+
+    .cta-workshop-titulo {
+      font-size: 2rem;
+    }
+
+    .cta-workshop-preco {
+      font-size: 1.5rem;
+    }
+
+    .logo-img {
+      height: 30px;
+      max-width: 100px;
+    }
+  }
+
+  /* Animações */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--preto);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--verde-neon);
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--laranja);
+  }
+
+  /* Seleção */
+  ::selection {
+    background: var(--verde-neon);
+    color: var(--preto);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logos">
+    <!-- Logo 1: outbler company -->
+    <div class="logo-container">
+      <img class="logo-img" src="ob.png" alt="outbler company logo" 
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display: none;">O</div>
+    </div>
+    
+    <div class="nav-sep"></div>
+    
+    <!-- Logo 2: MASTERREFINER -->
+    <div class="logo-container">
+      <img class="logo-img" src="MR.6.png" style="margin-top: 10px;" alt="MASTERREFINER logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="logo-placeholder" style="display: none;">M</div>
+    </div>
+  </div>
+  <a href="#cursos" class="nav-cta">Ver Cursos</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="dot"></div>
+    <span>28 de Março 2026 · Presencial · Vagas Limitadas</span>
+  </div>
+
+  <h1 class="hero-title">
+    OFICINA <span class="accent">DE</span><br>
+    PROJECTOS
+  </h1>
+
+  <p class="hero-sub">Da ideia à decisão — sustentabilidade, impacto e tomada de decisão na prática.</p>
+
+  <!-- Contador Regressivo -->
+  <div class="countdown-container" id="countdown">
+    <div class="countdown-item">
+      <div class="countdown-value" id="days">00</div>
+      <div class="countdown-label">Dias</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-value" id="hours">00</div>
+      <div class="countdown-label">Horas</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-value" id="minutes">00</div>
+      <div class="countdown-label">Minutos</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-value" id="seconds">00</div>
+      <div class="countdown-label">Segundos</div>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span class="hero-pill">28 Março · Sábado</span>
+    <span class="hero-pill outline">4 Horas Intensivas</span>
+    <span class="hero-pill outline">Presencial</span>
+  </div>
+
+  <a href="#cursos" class="hero-cta-btn">Garantir Minha Vaga</a>
+
+  <div class="hero-vagas">
+    <div class="hero-vagas-text">VAGAS<br>LIMITADAS</div>
+    <div class="hero-vagas-label">// 2026</div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div>
+    <h2 class="problem-headline">A MAIORIA DAS <em>IDEIAS</em> NÃO FALHA</h2>
+  </div>
+  <div>
+    <p class="problem-text">
+      Por falta de talento.<br><br>
+      <em>Falha</em> por <strong>falta de estrutura</strong>, clareza e <strong>decisão estratégica</strong>.
+    </p>
+  </div>
+</section>
+
+<!-- FLYERS -->
+<section class="flyers" id="flyers">
+  <div class="flyers-grid">
+    <!-- Flyer 1 -->
+    <div class="flyer-card">
+      <img class="flyer-img" src="1.jpeg" alt="Flyer Oficina de Projetos"
+           onerror="this.style.display='none'; this.parentElement.querySelector('.flyer-img-placeholder').style.display='flex'; this.parentElement.querySelector('.flyer-img-placeholder').style.flexDirection='column';">
+      <div class="flyer-img-placeholder" style="display: none;">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect>
+          <line x1="8" y1="2" x2="8" y2="22"></line>
+          <line x1="16" y1="2" x2="16" y2="22"></line>
+          <line x1="2" y1="8" x2="22" y2="8"></line>
+          <line x1="2" y1="16" x2="22" y2="16"></line>
+        </svg>
+        <span>Flyer 1</span>
+      </div>
+    </div>
+
+    <!-- Flyer 2 -->
+    <div class="flyer-card">
+      <img class="flyer-img" src="3.jpeg" alt="Flyer Conferência"
+           onerror="this.style.display='none'; this.parentElement.querySelector('.flyer-img-placeholder').style.display='flex'; this.parentElement.querySelector('.flyer-img-placeholder').style.flexDirection='column';">
+      <div class="flyer-img-placeholder" style="display: none;">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect>
+          <line x1="8" y1="2" x2="8" y2="22"></line>
+          <line x1="16" y1="2" x2="16" y2="22"></line>
+          <line x1="2" y1="8" x2="22" y2="8"></line>
+          <line x1="2" y1="16" x2="22" y2="16"></line>
+        </svg>
+        <span>Flyer 2</span>
+      </div>
+    </div>
+
+    <!-- Flyer 3 -->
+    <div class="flyer-card">
+      <img class="flyer-img" src="4.jpeg" alt="Flyer Curso Intensivo"
+           onerror="this.style.display='none'; this.parentElement.querySelector('.flyer-img-placeholder').style.display='flex'; this.parentElement.querySelector('.flyer-img-placeholder').style.flexDirection='column';">
+      <div class="flyer-img-placeholder" style="display: none;">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect>
+          <line x1="8" y1="2" x2="8" y2="22"></line>
+          <line x1="16" y1="2" x2="16" y2="22"></line>
+          <line x1="2" y1="8" x2="22" y2="8"></line>
+          <line x1="2" y1="16" x2="22" y2="16"></line>
+        </svg>
+        <span>Flyer 3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section class="cursos" id="cursos">
+  <div class="section-tag">Nossas Formações</div>
+  <h2 class="section-title">ESCOLHA O <span>PROGRAMA</span><br>IDEAL PARA SI</h2>
+
+  <div class="cursos-grid">
+    <!-- Conferência de Gestão de Projetos -->
+    <div class="curso-card" data-curso="conferencia">
+      <div class="curso-header">
+        <div class="curso-tipo">Conferência</div>
+        <div class="curso-nome">GESTÃO DE<br>PROJETOS 2026</div>
+        <div class="curso-data">15-16 Maio 2026 · 2 Dias</div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-descricao">
+          Dois dias de imersão com especialistas, cases reais e networking de alto nível.
+        </p>
+        <div class="precos-container">
+          <div class="preco-tipo selected" data-tipo="particular" data-preco="15000" onclick="selecionarPreco(this, 'conferencia')">
+            <span class="preco-label">Particular</span>
+            <span class="preco-valor">15.000 kz</span>
+          </div>
+          <div class="preco-tipo" data-tipo="empresa" data-preco="25000" onclick="selecionarPreco(this, 'conferencia')">
+            <span class="preco-label">Empresa</span>
+            <span class="preco-valor">25.000 kz</span>
+          </div>
+        </div>
+        <button class="curso-btn" onclick="abrirModal('Conferência de Gestão de Projetos', this, 'referencia')">Inscrever-me</button>
+      </div>
+    </div>
+
+    <!-- Oficina de Projetos (Destaque) -->
+    <div class="curso-card featured" data-curso="workshop">
+      <div class="curso-header">
+        <div class="curso-tipo">Workshop</div>
+        <div class="curso-nome">OFICINA DE<br>PROJECTOS</div>
+        <div class="curso-data">28 Março 2026 · 4 Horas</div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-descricao">
+          Da ideia à decisão — experiência prática, intensiva e orientada à ação.
+        </p>
+        <!-- Preço único -->
+        <div class="preco-unico">
+          <span class="preco-label">Investimento</span>
+          <span class="preco-valor">25.000 kz</span>
+        </div>
+        
+        <!-- QR Code para pagamento -->
+        <div class="qr-container">
+          <div class="qr-placeholder">
+            <img src="qr.jpeg" alt="QR Code">
+          </div>
+          <div class="qr-label">Pague via QR Code</div>
+        </div>
+        
+        <button class="curso-btn" onclick="abrirModal('Oficina de Projetos', this, 'qr')">Inscrever-me</button>
+      </div>
+    </div>
+
+    <!-- Curso Intensivo de Gestão de Projetos -->
+    <div class="curso-card" data-curso="intensivo">
+      <div class="curso-header">
+        <div class="curso-tipo">Intensivo</div>
+        <div class="curso-nome">GESTÃO DE<br>PROJETOS</div>
+        <div class="curso-data">Junho 2026 · 4 Semanas</div>
+      </div>
+      <div class="curso-body">
+        <p class="curso-descricao">
+          Formação completa em gestão de projetos, do planeamento à execução.
+        </p>
+        <div class="precos-container">
+          <div class="preco-tipo selected" data-tipo="particular" data-preco="45000" onclick="selecionarPreco(this, 'intensivo')">
+            <span class="preco-label">Particular</span>
+            <span class="preco-valor">45.000 kz</span>
+          </div>
+          <div class="preco-tipo" data-tipo="empresa" data-preco="75000" onclick="selecionarPreco(this, 'intensivo')">
+            <span class="preco-label">Empresa</span>
+            <span class="preco-valor">75.000 kz</span>
+          </div>
+        </div>
+        <button class="curso-btn" onclick="abrirModal('Curso Intensivo de Gestão de Projetos', this, 'referencia')">Inscrever-me</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS -->
+<section class="what-happens">
+  <div class="section-tag">Programação</div>
+  <h2 class="section-title">O QUE <span>ACONTECE</span><br>NO WORKSHOP?</h2>
+  <div class="duration-badge">Duração: 4 Horas Intensivas</div>
+
+  <div class="items-grid">
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Aplicação prática na sua própria ideia ou projecto</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Exercícios orientados passo a passo</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Definição de metas claras e indicadores de 90 dias</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Coffee break e networking estratégico</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Análise de riscos e impacto real</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Certificado de participação</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Estruturação básica com ferramentas simples</p>
+    </div>
+    <div class="item-row">
+      <div class="item-dot"></div>
+      <p class="item-text">Acesso ao Ecossistema CGP após participação</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what-you-get">
+  <div class="section-tag">Resultados</div>
+  <h2 class="section-title">O QUE <span>VOCÊ LEVA</span><br>AO FINAL DA OFICINA?</h2>
+
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="benefit-title">Clareza Estratégica</div>
+      <p class="benefit-text">Decidir: continuar, ajustar ou repensar seu projecto com segurança e dados reais.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-title">Visão Aplicada</div>
+      <p class="benefit-text">Estratégia aplicada à sua realidade — não teoria genérica, mas soluções para o seu contexto.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-title">Estrutura Acionável</div>
+      <p class="benefit-text">Estrutura inicial organizada e pronta para implementação imediata.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-title">Materiais Exclusivos</div>
+      <p class="benefit-text">Apostila e materiais exclusivos da CGP + template de projecto pronto para usar.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-title">Visibilidade</div>
+      <p class="benefit-text">Oportunidade de apresentar seu projecto para empresas e pessoas relevantes.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-title">Conexões</div>
+      <p class="benefit-text">Aproximação com empresas convidadas e rede de participantes comprometidos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VS -->
+<div class="vs-wrapper">
+  <div class="vs-section">
+    <div class="vs-left">
+      <div class="vs-label">No discurso</div>
+      <div class="vs-item">Fala-se de responsabilidade</div>
+      <div class="vs-item">Fala-se de impacto</div>
+      <div class="vs-item">Fala-se de futuro</div>
+      <div class="vs-quote">
+        Uma ideia que não muda decisões… é apenas intenção.
+      </div>
+    </div>
+    <div class="vs-right">
+      <div class="vs-label dark">Na aplicação real</div>
+      <div class="vs-item dark">Define-se métricas claras</div>
+      <div class="vs-item dark">Mede-se o impacto</div>
+      <div class="vs-item dark">Ajusta-se a execução</div>
+      <div class="vs-quote dark-q">
+        Na CGP, você passa da intenção para a execução estruturada.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA WORKSHOP EXTRA -->
+<section class="cta-workshop" id="cta-workshop">
+  <div class="cta-workshop-content">
+    <div class="cta-workshop-info">
+      <h3 class="cta-workshop-titulo">OFICINA DE <span>PROJECTOS</span></h3>
+      <p class="cta-workshop-texto">Garanta já a sua vaga para o workshop mais prático do ano.</p>
+      <div class="cta-workshop-preco">25.000 kz</div>
+    </div>
+    <div class="cta-workshop-qr">
+      <div class="qr-placeholder">
+        <img src="qr.jpeg" alt="QR Code">
+      </div>
+      <div class="qr-label">Pague via QR Code</div>
+      <button class="cta-workshop-btn" onclick="abrirModal('Oficina de Projetos', this, 'qr')">Quero Garantir</button>
+    </div>
+  </div>
+</section>
+
+<!-- FORMADORES -->
+<section class="formadores" id="formadores">
+  <div class="section-tag">Quem vai facilitar</div>
+  <h2 class="section-title">OS <span>FORMADORES</span></h2>
+
+  <div class="formadores-grid">
+    <!-- Formador 1 -->
+    <div class="formador-card">
+      <div class="formador-img-container">
+        <img class="formador-img" src="3.jpg" alt="Foto do Formador 1"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.formador-img-placeholder').style.display='flex';">
+        <div class="formador-img-placeholder" style="display: none;">
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Foto em breve</span>
+        </div>
+      </div>
+      <div class="formador-info">
+        <div class="formador-name">Dr. António Costa</div>
+        <div class="formador-role">Especialista em Gestão de Projetos</div>
+        <p class="formador-bio">Mais de 15 anos de experiência em gestão de projetos complexos em Angola e internacional.</p>
+      </div>
+    </div>
+    
+    <!-- Formador 2 -->
+    <div class="formador-card">
+      <div class="formador-img-container">
+        <img class="formador-img" src="2.jpeg" alt="Foto do Formador 2"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.formador-img-placeholder').style.display='flex';">
+        <div class="formador-img-placeholder" style="display: none;">
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Foto em breve</span>
+        </div>
+      </div>
+      <div class="formador-info">
+        <div class="formador-name">Eng. Fidel dos Santos</div>
+        <div class="formador-role">Consultor de Inovação</div>
+        <p class="formador-bio">Especialista em transformação digital e implementação de metodologias ágeis.</p>
+      </div>
+    </div>
+    
+    <!-- Formador 3 -->
+    <div class="formador-card">
+      <div class="formador-img-container">
+        <img class="formador-img" src="1.png" alt="Foto do Formador 3"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.formador-img-placeholder').style.display='flex';">
+        <div class="formador-img-placeholder" style="display: none;">
+          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Foto em breve</span>
+        </div>
+      </div>
+      <div class="formador-info">
+        <div class="formador-name">Dr. Jeany Pinto</div>
+        <div class="formador-role">Gestor de Projetos Sénior</div>
+        <p class="formador-bio">Experiência em projetos de grande escala nos setores público e privado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <div class="section-tag">Prova Social</div>
+  <h2 class="section-title">O QUE DIZEM OS<br><span>PARTICIPANTES</span></h2>
+
+  <div class="dep-grid">
+    <div class="dep-card">
+      <p class="dep-text">O workshop mudou completamente a forma como eu enxergo meus projectos. Saí com clareza e um plano real para executar.</p>
+      <div class="dep-author">
+        <div class="dep-avatar">
+          <img class="dep-avatar-img" src="https://placehold.co/100x100/1f8a3c/b5ff4d?text=João" alt="João Silva" 
+               onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, var(--verde-medio), var(--verde-neon))'; this.parentElement.innerHTML='J';">
+        </div>
+        <div>
+          <div class="dep-name">João Silva</div>
+          <div class="dep-title-role">Empreendedor · Luanda</div>
+        </div>
+      </div>
+    </div>
+    <div class="dep-card">
+      <p class="dep-text">Em 4 horas fiz mais progresso no meu projecto do que em meses tentando sozinho. As ferramentas são simples e extremamente eficazes.</p>
+      <div class="dep-author">
+        <div class="dep-avatar">
+          <img class="dep-avatar-img" src="https://placehold.co/100x100/3a9a4a/b5ff4d?text=Maria" alt="Maria Santos"
+               onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, var(--verde-medio), var(--verde-neon))'; this.parentElement.innerHTML='M';">
+        </div>
+        <div>
+          <div class="dep-name">Maria Santos</div>
+          <div class="dep-title-role">Gestora de Projectos · Angola</div>
+        </div>
+      </div>
+    </div>
+    <div class="dep-card">
+      <p class="dep-text">A rede de contactos que formei na oficina vale mais do que qualquer curso online. Pessoas sérias, comprometidas com resultados reais.</p>
+      <div class="dep-author">
+        <div class="dep-avatar">
+          <img class="dep-avatar-img" src="https://placehold.co/100x100/0c3b2a/b5ff4d?text=Ana" alt="Ana Ferreira"
+               onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, var(--verde-medio), var(--verde-neon))'; this.parentElement.innerHTML='A';">
+        </div>
+        <div>
+          <div class="dep-name">Ana Ferreira</div>
+          <div class="dep-title-role">Consultora · Luanda</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2 class="final-cta-title">O SEU PROJECTO<br><span>ESTÁ PRONTO</span><br>PARA AVANÇAR?</h2>
+  <p class="final-cta-sub">Entra na oficina com tua ideia e sai com um projecto com pernas para andar.</p>
+  <a href="#cursos" class="final-cta-btn">Garantir Minha Vaga</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logos">
+    <!-- Footer Logo 1 -->
+    <img class="footer-logo-img" src="ob.png" alt="outbler company" 
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <div class="footer-logo-placeholder" style="display: none;"></div>
+    
+    <span style="color:rgba(255,255,255,0.15)">×</span>
+    
+    <!-- Footer Logo 2 -->
+    <img class="footer-logo-img" style="margin-top: 10px;" src="MR.6.png" alt="MASTERREFINER"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <div class="footer-logo-placeholder" style="display: none;"></div>
+  </div>
+  <div class="footer-copy">Oficina de Gestão de Projectos · Comunidade CGP</div>
+  <div class="footer-date">2026</div>
+</footer>
+
+<!-- MODAL DE INSCRIÇÃO -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal()">&times;</button>
+    <h3 class="modal-titulo" id="modal-titulo"></h3>
+    <p class="modal-subtitulo" id="modal-subtitulo"></p>
+    <div class="modal-preco" id="modal-preco"></div>
+    
+    <!-- Informação de pagamento (dinâmica) -->
+    <div class="modal-pagamento-info" id="modal-pagamento">
+      <!-- Será preenchido via JavaScript -->
+    </div>
+    
+    <form class="modal-form" id="modal-form" onsubmit="enviarInscricao(event)">
+      <input type="hidden" id="modal-curso" name="curso">
+      <input type="hidden" id="modal-tipo" name="tipo">
+      <input type="hidden" id="modal-valor" name="valor">
+      <input type="hidden" id="modal-metodo" name="metodo">
+      <input class="modal-input" type="text" placeholder="Nome completo" required>
+      <input class="modal-input" type="email" placeholder="E-mail" required>
+      <input class="modal-input" type="tel" placeholder="Telefone" required>
+      <button type="submit" class="modal-btn">Confirmar Inscrição</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Contador Regressivo
+  function atualizarContador() {
+    const dataEvento = new Date('March 28, 2026 09:00:00').getTime();
+    const agora = new Date().getTime();
+    const diferenca = dataEvento - agora;
+
+    if (diferenca > 0) {
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(dias).padStart(2, '0');
+      document.getElementById('hours').textContent = String(horas).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutos).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(segundos).padStart(2, '0');
+    } else {
+      document.getElementById('countdown').innerHTML = '<div class="countdown-item"><div class="countdown-value">EVENTO</div><div class="countdown-label">EM ANDAMENTO</div></div>';
+    }
+  }
+
+  setInterval(atualizarContador, 1000);
+  atualizarContador();
+
+  // Selecionar preço (apenas para outros cursos)
+  function selecionarPreco(elemento, curso) {
+    if (curso === 'workshop') return; // Workshop não tem seleção de preço
+    
+    // Remove seleção de todos os preços deste curso
+    const container = elemento.closest('.curso-card');
+    container.querySelectorAll('.preco-tipo').forEach(el => {
+      el.classList.remove('selected');
+    });
+    
+    // Adiciona seleção ao elemento clicado
+    elemento.classList.add('selected');
+  }
+
+  // Modal
+  function abrirModal(nomeCurso, botao, metodoPagamento) {
+    const cursoCard = botao.closest('.curso-card');
+    const cursoTipo = cursoCard ? cursoCard.dataset.curso : 'workshop';
+    
+    let preco = '';
+    let tipoInscricao = '';
+    let valor = '';
+    let pagamentoHtml = '';
+
+    if (cursoTipo === 'workshop') {
+      // Workshop - preço único
+      preco = '25.000 kz';
+      tipoInscricao = 'Workshop';
+      valor = '25000';
+      
+      pagamentoHtml = `
+        <div class="qr-placeholder" style="width:80px; height:80px; margin:0 auto 0.5rem;">
+          <img src="qr.jpeg" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+        <div class="qr-label">Pague via QR Code</div>
+        <div class="qr-sub">Multicaixa Express</div>
+      `;
+    } else {
+      // Outros cursos - pegar preço selecionado
+      const precoSelecionado = cursoCard.querySelector('.preco-tipo.selected');
+      if (!precoSelecionado) {
+        alert('Por favor, selecione o tipo de inscrição (Particular ou Empresa)');
+        return;
+      }
+      
+      tipoInscricao = precoSelecionado.dataset.tipo === 'particular' ? 'Particular' : 'Empresa';
+      preco = precoSelecionado.querySelector('.preco-valor').textContent;
+      valor = precoSelecionado.dataset.preco;
+      
+      pagamentoHtml = `
+        <div class="qr-label" style="margin-bottom:0.5rem;">Pagamento por Referência</div>
+        <div class="qr-sub" style="margin-bottom:0.75rem;">Multicaixa / ATM / Home Banking</div>
+        <div class="referencia-box">
+          <p style="color:var(--verde-neon); font-family:monospace; font-weight:600;">Ref: 999 999 999</p>
+          <p style="color:white;">Entidade: 12345</p>
+          <p style="color:white;">Valor: ${preco}</p>
+        </div>
+      `;
+    }
+
+    document.getElementById('modal-titulo').textContent = nomeCurso;
+    document.getElementById('modal-subtitulo').textContent = cursoTipo === 'workshop' ? 'Inscrição' : `Inscrição: ${tipoInscricao}`;
+    document.getElementById('modal-preco').textContent = preco;
+    document.getElementById('modal-pagamento').innerHTML = pagamentoHtml;
+    document.getElementById('modal-curso').value = nomeCurso;
+    document.getElementById('modal-tipo').value = tipoInscricao;
+    document.getElementById('modal-valor').value = valor;
+    document.getElementById('modal-metodo').value = metodoPagamento;
+
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fecharModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  function enviarInscricao(event) {
+    event.preventDefault();
+    
+    // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+    const metodo = document.getElementById('modal-metodo').value;
+    const mensagem = metodo === 'qr' 
+      ? 'Inscrição realizada com sucesso! Use o QR Code para efetuar o pagamento.'
+      : 'Inscrição realizada com sucesso! Utilize a referência fornecida para efetuar o pagamento.';
+    
+    alert(mensagem);
+    fecharModal();
+    
+    // Limpar formulário
+    event.target.reset();
+  }
+
+  // Fechar modal ao clicar fora
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      fecharModal();
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
