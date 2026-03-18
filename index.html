@@ -74,7 +74,7 @@
     display: inline-block;
   }
 
-  /* Navbar - AGORA COM A MESMA COR DA HERO SECTION */
+  /* Navbar */
   nav {
     position: fixed;
     top: 0;
@@ -628,7 +628,7 @@
     transition: var(--transicao);
   }
 
-  /* QR Code para Workshop - QR OCUPA TODA ÁREA BRANCA */
+  /* QR Code para Workshop */
   .qr-container {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
@@ -704,7 +704,7 @@
     transform: translateY(-2px);
   }
 
-  /* CTA Workshop Extra - SEM ESTRELAS, DESIGN SOFISTICADO */
+  /* CTA Workshop Extra */
   .cta-workshop {
     padding: 4rem 5%;
     background: linear-gradient(135deg, var(--verde-escuro), #0f4a33);
@@ -1297,7 +1297,7 @@
     color: rgba(255, 255, 255, 0.5);
   }
 
-  /* Modal de Inscrição - QR MAIOR */
+  /* Modal de Inscrição - SIMPLIFICADO */
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -1323,7 +1323,7 @@
     background: linear-gradient(135deg, var(--cinza), #1f2421);
     border-radius: 1.5rem;
     padding: 2rem;
-    max-width: 450px;
+    max-width: 400px;
     width: 90%;
     position: relative;
     border: 2px solid var(--verde-neon);
@@ -1363,27 +1363,61 @@
     font-family: 'Archivo Black', sans-serif;
     font-size: 1.5rem;
     color: white;
-    margin-bottom: 0.25rem;
-    padding-right: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
   }
 
   .modal-subtitulo {
     font-size: 0.9rem;
     color: var(--verde-neon);
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .modal-preco {
     font-size: 2rem;
     font-weight: 800;
     color: var(--verde-neon);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
     text-align: center;
   }
 
+  /* QR Code no Modal - SIMPLIFICADO */
+  .modal-qr-container {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .modal-qr-placeholder {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .modal-qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .modal-qr-text {
+    font-size: 1rem;
+    color: var(--verde-neon);
+    margin-top: 0.5rem;
+  }
+
+  /* Container para informações de pagamento - removido para cursos com contacto */
   .modal-pagamento-info {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
@@ -1412,70 +1446,58 @@
     font-size: 0.85rem;
   }
 
-  .modal-pagamento-info .referencia-box {
-    margin-top: 0.5rem;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 0.8rem;
-    border: 1px solid rgba(181, 255, 77, 0.2);
-  }
-
-  .modal-pagamento-info .referencia-box p {
-    font-size: 1rem;
-    margin: 0.3rem 0;
-  }
-
-  .modal-pagamento-info .referencia-box .referencia-valor {
-    color: var(--verde-neon);
-    font-family: monospace;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .modal-input {
-    padding: 0.8rem 1.2rem;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    font-size: 0.9rem;
-    color: white;
-    transition: var(--transicao);
-  }
-
-  .modal-input:focus {
-    outline: none;
-    border-color: var(--verde-neon);
-  }
-
-  .modal-input::placeholder {
-    color: rgba(255, 255, 255, 0.3);
-  }
-
-  .modal-btn {
-    background: var(--laranja);
-    color: white;
+  /* Botão Contacte-nos */
+  .modal-contact-btn {
+    background: linear-gradient(135deg, var(--verde-neon), var(--verde-medio));
+    color: var(--preto);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    padding: 0.8rem;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 50px;
+    border-radius: 100px;
     cursor: pointer;
     transition: var(--transicao);
-    margin-top: 0.5rem;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(181, 255, 77, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
   }
 
-  .modal-btn:hover {
-    background: var(--verde-neon);
-    color: var(--preto);
-    transform: translateY(-2px);
+  .modal-contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .modal-contact-btn:hover {
+    background: linear-gradient(135deg, var(--laranja), var(--laranja-escuro));
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 30px rgba(255, 94, 26, 0.4);
+  }
+
+  .modal-contact-btn:hover::before {
+    left: 100%;
+  }
+
+  .modal-message {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 1.5rem 0;
+    line-height: 1.6;
+    text-align: center;
   }
 
   /* Final CTA */
@@ -1551,7 +1573,7 @@
     transform: scale(1.05);
   }
 
-  /* Footer */
+  /* Footer - COM CONTACTO */
   footer {
     padding: 2rem 5%;
     background: var(--preto);
@@ -1591,9 +1613,35 @@
     opacity: 0.7;
   }
 
+  .footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .footer-copy {
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.3);
+  }
+
+  .footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--verde-neon);
+    text-decoration: none;
+    transition: var(--transicao);
+  }
+
+  .footer-contact:hover {
+    color: var(--laranja);
+    transform: scale(1.05);
+  }
+
+  .footer-contact span {
+    font-size: 1.1rem;
   }
 
   .footer-date {
@@ -1718,6 +1766,15 @@
     .footer-logos {
       justify-content: center;
     }
+
+    .footer-info {
+      width: 100%;
+    }
+
+    .modal-qr-placeholder {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   @media (max-width: 480px) {
@@ -1784,6 +1841,15 @@
 
     .nav-sep {
       height: 20px;
+    }
+
+    .modal-qr-placeholder {
+      width: 130px;
+      height: 130px;
+    }
+
+    .footer-contact {
+      font-size: 0.8rem;
     }
   }
 
@@ -1902,7 +1968,7 @@
   <div>
     <p class="problem-text">
       Por falta de talento.<br><br>
-      <em>Falha</em> por <strong>falta de estrutura</strong>, clareza e <strong>decisão estratégica</strong>.
+      <em>Mas</em> por <strong>falta de estrutura</strong>, clareza e <strong>decisão estratégica</strong>.
     </p>
   </div>
 </section>
@@ -1987,7 +2053,7 @@
             <span class="preco-valor">25.000 kz</span>
           </div>
         </div>
-        <button class="curso-btn" onclick="abrirModal('Conferência de Gestão de Projetos', this, 'referencia')">Inscrever-me</button>
+        <button class="curso-btn" onclick="abrirModal('Conferência de Gestão de Projetos', this, 'contacto')">Inscrever-me</button>
       </div>
     </div>
 
@@ -2008,7 +2074,7 @@
           <span class="preco-valor">25.000 kz</span>
         </div>
         
-        <!-- QR Code para pagamento - QR OCUPA TODA ÁREA BRANCA -->
+        <!-- QR Code para pagamento -->
         <div class="qr-container">
           <div class="qr-placeholder">
             <img src="qr.jpeg" alt="QR Code">
@@ -2042,7 +2108,7 @@
             <span class="preco-valor">75.000 kz</span>
           </div>
         </div>
-        <button class="curso-btn" onclick="abrirModal('Curso Intensivo de Gestão de Projetos', this, 'referencia')">Inscrever-me</button>
+        <button class="curso-btn" onclick="abrirModal('Curso Intensivo de Gestão de Projetos', this, 'contacto')">Inscrever-me</button>
       </div>
     </div>
   </div>
@@ -2147,7 +2213,7 @@
   </div>
 </div>
 
-<!-- CTA WORKSHOP EXTRA - SEM ESTRELAS, DESIGN SOFISTICADO -->
+<!-- CTA WORKSHOP EXTRA -->
 <section class="cta-workshop" id="cta-workshop">
   <div class="cta-workshop-content">
     <div class="cta-workshop-info">
@@ -2195,7 +2261,7 @@
     <!-- Formador 2 -->
     <div class="formador-card">
       <div class="formador-img-container">
-        <img class="formador-img" src="2.jpeg" alt="Foto do Formador 2"
+        <img class="formador-img" src="fd.jpeg" alt="Foto do Formador 2"
              onerror="this.style.display='none'; this.parentElement.querySelector('.formador-img-placeholder').style.display='flex';">
         <div class="formador-img-placeholder" style="display: none;">
           <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -2304,7 +2370,14 @@
          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
     <div class="footer-logo-placeholder" style="display: none;"></div>
   </div>
-  <div class="footer-copy">Oficina de Gestão de Projectos · Comunidade CGP</div>
+  
+  <div class="footer-info">
+    <div class="footer-copy">Oficina de Gestão de Projectos · Comunidade CGP</div>
+    <a href="tel:+244936154073" class="footer-contact">
+      <span>📞</span> +244 936 154 073
+    </a>
+  </div>
+  
   <div class="footer-date">2026</div>
 </footer>
 
@@ -2316,21 +2389,11 @@
     <p class="modal-subtitulo" id="modal-subtitulo"></p>
     <div class="modal-preco" id="modal-preco"></div>
     
-    <!-- Informação de pagamento (dinâmica) -->
-    <div class="modal-pagamento-info" id="modal-pagamento">
-      <!-- Será preenchido via JavaScript -->
-    </div>
+    <!-- Container para o QR Code (apenas para workshop) -->
+    <div id="modal-qr-container" class="modal-qr-container" style="display: none;"></div>
     
-    <form class="modal-form" id="modal-form" onsubmit="enviarInscricao(event)">
-      <input type="hidden" id="modal-curso" name="curso">
-      <input type="hidden" id="modal-tipo" name="tipo">
-      <input type="hidden" id="modal-valor" name="valor">
-      <input type="hidden" id="modal-metodo" name="metodo">
-      <input class="modal-input" type="text" placeholder="Nome completo" required>
-      <input class="modal-input" type="email" placeholder="E-mail" required>
-      <input class="modal-input" type="tel" placeholder="Telefone" required>
-      <button type="submit" class="modal-btn">Confirmar Inscrição</button>
-    </form>
+    <!-- Container para o conteúdo dinâmico (botão de contacto) -->
+    <div id="modal-conteudo"></div>
   </div>
 </div>
 
@@ -2373,6 +2436,19 @@
     elemento.classList.add('selected');
   }
 
+  // Função para contatar via WhatsApp
+  function contactarWhatsApp(curso, tipo, preco) {
+    const numero = "244936154073"; // Número atualizado
+    const mensagem = encodeURIComponent(
+      `Olá! Estou interessado no curso: ${curso}\n` +
+      `Tipo: ${tipo}\n` +
+      `Valor: ${preco}\n` +
+      `Gostaria de mais informações sobre a inscrição.`
+    );
+    window.open(`https://wa.me/${numero}?text=${mensagem}`, '_blank');
+    fecharModal();
+  }
+
   // Modal
   function abrirModal(nomeCurso, botao, metodoPagamento) {
     const cursoCard = botao.closest('.curso-card');
@@ -2380,24 +2456,24 @@
     
     let preco = '';
     let tipoInscricao = '';
-    let valor = '';
-    let pagamentoHtml = '';
+    let qrHtml = '';
+    let conteudoHtml = '';
 
     if (cursoTipo === 'workshop') {
-      // Workshop - preço único
+      // Workshop - apenas QR Code
       preco = '25.000 kz';
       tipoInscricao = 'Workshop';
-      valor = '25000';
       
-      pagamentoHtml = `
-        <div class="qr-placeholder" style="width:120px; height:120px; margin:0 auto 1rem;">
-          <img src="qr.jpeg" style="width:100%; height:100%; object-fit:cover;">
+      qrHtml = `
+        <div class="modal-qr-placeholder">
+          <img src="qr.jpeg" alt="QR Code">
         </div>
-        <div class="qr-label">Pague via QR Code</div>
-        <div class="qr-sub">Multicaixa Express</div>
+        <div class="modal-qr-text">Escaneie o QR Code para efectuar o pagamento</div>
       `;
+      
+      conteudoHtml = ''; // Sem conteúdo adicional
     } else {
-      // Outros cursos - pegar preço selecionado
+      // Outros cursos - apenas botão Contacte-nos
       const precoSelecionado = cursoCard.querySelector('.preco-tipo.selected');
       if (!precoSelecionado) {
         alert('Por favor, selecione o tipo de inscrição (Particular ou Empresa)');
@@ -2406,27 +2482,34 @@
       
       tipoInscricao = precoSelecionado.dataset.tipo === 'particular' ? 'Particular' : 'Empresa';
       preco = precoSelecionado.querySelector('.preco-valor').textContent;
-      valor = precoSelecionado.dataset.preco;
       
-      pagamentoHtml = `
-        <div class="qr-label" style="margin-bottom:0.5rem;">Pagamento por Referência</div>
-        <div class="qr-sub" style="margin-bottom:0.75rem;">Multicaixa / ATM / Home Banking</div>
-        <div class="referencia-box">
-          <p><span style="color:var(--verde-neon);">Ref:</span> <span class="referencia-valor">999 999 999</span></p>
-          <p><span style="color:white;">Entidade:</span> <span style="color:var(--verde-neon);">12345</span></p>
-          <p><span style="color:white;">Valor:</span> <span style="color:var(--verde-neon);">${preco}</span></p>
+      qrHtml = ''; // Sem QR Code
+      
+      conteudoHtml = `
+        <div class="modal-message">
+          Para se inscrever neste curso, entre em contato conosco.
+          Teremos prazer em ajudar com todas as informações necessárias.
         </div>
+        <button class="modal-contact-btn" onclick="contactarWhatsApp('${nomeCurso}', '${tipoInscricao}', '${preco}')">
+          <span>📱</span> Contacte-nos no WhatsApp
+        </button>
       `;
     }
 
     document.getElementById('modal-titulo').textContent = nomeCurso;
-    document.getElementById('modal-subtitulo').textContent = cursoTipo === 'workshop' ? 'Inscrição' : `Inscrição: ${tipoInscricao}`;
+    document.getElementById('modal-subtitulo').textContent = cursoTipo === 'workshop' ? 'Pagamento' : `Inscrição: ${tipoInscricao}`;
     document.getElementById('modal-preco').textContent = preco;
-    document.getElementById('modal-pagamento').innerHTML = pagamentoHtml;
-    document.getElementById('modal-curso').value = nomeCurso;
-    document.getElementById('modal-tipo').value = tipoInscricao;
-    document.getElementById('modal-valor').value = valor;
-    document.getElementById('modal-metodo').value = metodoPagamento;
+    
+    // Exibir ou ocultar QR Code
+    const qrContainer = document.getElementById('modal-qr-container');
+    if (qrHtml) {
+      qrContainer.innerHTML = qrHtml;
+      qrContainer.style.display = 'block';
+    } else {
+      qrContainer.style.display = 'none';
+    }
+    
+    document.getElementById('modal-conteudo').innerHTML = conteudoHtml;
 
     document.getElementById('modal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -2435,22 +2518,6 @@
   function fecharModal() {
     document.getElementById('modal').classList.remove('active');
     document.body.style.overflow = 'auto';
-  }
-
-  function enviarInscricao(event) {
-    event.preventDefault();
-    
-    // Aqui você pode adicionar a lógica para enviar os dados para o servidor
-    const metodo = document.getElementById('modal-metodo').value;
-    const mensagem = metodo === 'qr' 
-      ? 'Inscrição realizada com sucesso! Use o QR Code para efetuar o pagamento.'
-      : 'Inscrição realizada com sucesso! Utilize a referência fornecida para efetuar o pagamento.';
-    
-    alert(mensagem);
-    fecharModal();
-    
-    // Limpar formulário
-    event.target.reset();
   }
 
   // Fechar modal ao clicar fora
