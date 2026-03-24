@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Archivo+Black&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+  /* Mantenha todo o CSS existente aqui */
   * {
     margin: 0;
     padding: 0;
@@ -77,7 +78,7 @@
     display: inline-block;
   }
 
-  /* Navbar - RESPONSIVA */
+  /* Navbar */
   nav {
     position: fixed;
     top: 0;
@@ -152,7 +153,7 @@
     transform: scale(1.02);
   }
 
-  /* Hero Section - RESPONSIVA */
+  /* Hero Section */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -243,7 +244,7 @@
     text-align: center;
   }
 
-  /* Contador Regressivo - RESPONSIVO */
+  /* Contador Regressivo */
   .countdown-container {
     display: flex;
     gap: 0.8rem;
@@ -278,7 +279,7 @@
     color: rgba(255, 255, 255, 0.6);
   }
 
-  /* BANNER DE PROMOÇÃO - RESPONSIVO */
+  /* BANNER DE PROMOÇÃO */
   .promo-banner {
     background: linear-gradient(135deg, var(--laranja), #ff7a3a);
     border-radius: 1.5rem;
@@ -414,7 +415,7 @@
     display: none;
   }
 
-  /* Problem Section - RESPONSIVA */
+  /* Problem Section */
   .problem {
     padding: 3rem 5%;
     background: linear-gradient(135deg, #b5ff4d 0%, #9fe63a 100%);
@@ -442,7 +443,7 @@
     color: var(--verde-escuro);
   }
 
-  /* Cards de Cursos - RESPONSIVO */
+  /* Cards de Cursos */
   .cursos {
     padding: 3rem 5%;
     background: var(--preto);
@@ -592,7 +593,7 @@
     transform: translateY(-2px);
   }
 
-  /* Modal de Pagamento - RESPONSIVO */
+  /* Modal de Pagamento */
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -619,7 +620,7 @@
     background: linear-gradient(135deg, var(--cinza), #1f2421);
     border-radius: 1.5rem;
     padding: 1.5rem;
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
     position: relative;
     border: 2px solid var(--verde-neon);
@@ -671,7 +672,7 @@
 
   .modal-subtitulo {
     font-size: 0.85rem;
-    color: white;
+    color: var(--verde-neon);
     margin-bottom: 1rem;
     text-align: center;
   }
@@ -687,7 +688,7 @@
     text-align: center;
   }
 
-  /* Informações Bancárias - RESPONSIVO */
+  /* Informações Bancárias */
   .bank-info {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 1rem;
@@ -699,7 +700,7 @@
   .bank-info h4 {
     color: var(--verde-neon);
     margin-bottom: 0.8rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: center;
   }
 
@@ -722,7 +723,7 @@
   .bank-label {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .bank-label i {
@@ -733,7 +734,7 @@
   .bank-value {
     font-weight: 600;
     color: var(--verde-neon);
-    font-size: 1rem;
+    font-size: 0.9rem;
     word-break: break-all;
   }
 
@@ -765,7 +766,7 @@
     box-shadow: 0 8px 15px rgba(37, 211, 102, 0.3);
   }
 
-  /* What happens grid - RESPONSIVO */
+  /* What happens grid */
   .what-happens {
     padding: 3rem 5%;
     background: linear-gradient(135deg, var(--cinza), #232725);
@@ -826,7 +827,7 @@
     color: rgba(255, 255, 255, 0.9);
   }
 
-  /* Benefits grid - RESPONSIVO */
+  /* Benefits grid */
   .what-you-get {
     padding: 3rem 5%;
     background: linear-gradient(135deg, var(--verde-escuro), #0d4a32);
@@ -869,7 +870,7 @@
     color: rgba(255, 255, 255, 0.8);
   }
 
-  /* VS Section - RESPONSIVO */
+  /* VS Section */
   .vs-wrapper {
     position: relative;
   }
@@ -950,7 +951,7 @@
     color: var(--verde-escuro);
   }
 
-  /* Formadores cards - COM IMAGENS */
+  /* Formadores cards */
   .formadores {
     padding: 3rem 5%;
     background: linear-gradient(135deg, var(--cinza), #1f2421);
@@ -1041,7 +1042,7 @@
     color: rgba(255, 255, 255, 0.6);
   }
 
-  /* Depoimentos - RESPONSIVO */
+  /* Depoimentos */
   .depoimentos {
     padding: 3rem 5%;
     background: linear-gradient(135deg, var(--verde-escuro), #0f4230);
@@ -1123,7 +1124,7 @@
     color: rgba(255, 255, 255, 0.5);
   }
 
-  /* Final CTA - RESPONSIVO */
+  /* Final CTA */
   .final-cta {
     padding: 3rem 5%;
     background: linear-gradient(135deg, var(--laranja), #ff7a3a);
@@ -1201,7 +1202,7 @@
     transform: scale(1.02);
   }
 
-  /* Footer - RESPONSIVO */
+  /* Footer */
   footer {
     padding: 1.5rem 5%;
     background: var(--preto);
@@ -1431,7 +1432,7 @@
       <div class="logo-placeholder" style="display: none;">M</div>
     </div>
   </div>
-  <a href="#curso" class="nav-cta"><i class="fas fa-ticket-alt"></i> Garantir Promoção</a>
+  <a href="#curso" class="nav-cta" id="btn-nav-cta"><i class="fas fa-ticket-alt"></i> Garantir Promoção</a>
 </nav>
 
 <!-- HERO -->
@@ -1479,7 +1480,7 @@
           <span class="new">5.000 KZ</span>
         </div>
       </div>
-      <button class="promo-btn" onclick="abrirModalPromocao()">GARANTIR AGORA <i class="fas fa-arrow-right"></i></button>
+      <button class="promo-btn" id="btn-promo-banner" onclick="abrirModalPromocao()">GARANTIR AGORA <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
 
@@ -1528,7 +1529,7 @@
           <span class="preco-desconto"><i class="fas fa-tag"></i> -80% OFF</span>
         </div>
         
-        <button class="curso-btn" onclick="abrirModalPromocao()">GARANTIR MINHA VAGA <i class="fas fa-arrow-right"></i></button>
+        <button class="curso-btn" id="btn-curso" onclick="abrirModalPromocao()">GARANTIR MINHA VAGA <i class="fas fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
@@ -1581,13 +1582,12 @@
   </div>
 </div>
 
-<!-- FORMADORES - COM IMAGENS -->
+<!-- FORMADORES -->
 <section class="formadores" id="formadores">
   <div class="section-tag"><i class="fas fa-chalkboard-user"></i> Quem vai facilitar</div>
   <h2 class="section-title">OS <span>FORMADORES</span></h2>
 
   <div class="formadores-grid">
-    <!-- Formador 1 -->
     <div class="formador-card">
       <div class="formador-img-container">
         <img class="formador-img" src="formador1.jpeg" alt="Foto do Formador 1"
@@ -1604,7 +1604,6 @@
       </div>
     </div>
     
-    <!-- Formador 2 -->
     <div class="formador-card">
       <div class="formador-img-container">
         <img class="formador-img" src="fd.jpeg" alt="Foto do Formador 2"
@@ -1621,7 +1620,6 @@
       </div>
     </div>
     
-    <!-- Formador 3 -->
     <div class="formador-card">
       <div class="formador-img-container">
         <img class="formador-img" src="1.png" alt="Foto do Formador 3"
@@ -1662,7 +1660,7 @@
 <section class="final-cta">
   <h2 class="final-cta-title">NÃO PERCA ESTA <span>OPORTUNIDADE</span><br>POR APENAS <span style="color: var(--verde-neon);">5.000 KZ</span></h2>
   <p class="final-cta-sub"><i class="fas fa-hourglass-half"></i> Vagas limitadas! Garanta já o seu lugar com desconto especial.</p>
-  <button class="final-cta-btn" onclick="abrirModalPromocao()">GARANTIR MINHA VAGA <i class="fas fa-arrow-right"></i></button>
+  <button class="final-cta-btn" id="btn-final-cta" onclick="abrirModalPromocao()">GARANTIR MINHA VAGA <i class="fas fa-arrow-right"></i></button>
 </section>
 
 <!-- FOOTER -->
@@ -1674,7 +1672,7 @@
   </div>
   <div class="footer-info">
     <div class="footer-copy"><i class="far fa-copyright"></i> Oficina de Gestão de Projectos · Comunidade CGP</div>
-    <a href="tel:+244933282609" class="footer-contact"><i class="fas fa-phone-alt"></i> +244 933 282 609</a>
+    <a href="tel:+244933282609" class="footer-contact" id="footer-contact"><i class="fas fa-phone-alt"></i> +244 933 282 609</a>
   </div>
   <div class="footer-date">2026</div>
 </footer>
@@ -1682,7 +1680,7 @@
 <!-- MODAL COM INFORMAÇÕES DE PAGAMENTO -->
 <div class="modal-overlay" id="modalPromocao">
   <div class="modal">
-    <button class="modal-close" onclick="fecharModalPromocao()"><i class="fas fa-times"></i></button>
+    <button class="modal-close" id="modal-close-btn" onclick="fecharModalPromocao()"><i class="fas fa-times"></i></button>
     <h3 class="modal-titulo"><i class="fas fa-fire"></i> OFICINA DE PROJECTOS</h3>
     <p class="modal-subtitulo"><i class="fas fa-tag"></i> Promoção Especial - Vagas Limitadas</p>
     <div class="modal-preco"><i class="fas fa-money-bill-wave"></i> 5.000 KZ</div>
@@ -1707,13 +1705,143 @@
       </div>
     </div>
     
-    <button class="whatsapp-button" onclick="enviarWhatsApp()">
+    <button class="whatsapp-button" id="modal-whatsapp-btn" onclick="enviarWhatsApp()">
       <i class="fab fa-whatsapp"></i> ENVIAR COMPROVANTE NO WHATSAPP
     </button>
   </div>
 </div>
 
 <script>
+  // ==================== SISTEMA DE RASTREAMENTO DE CLIQUES ====================
+  // Chave para armazenamento no localStorage
+  const STORAGE_KEY = 'cgp_click_stats';
+
+  // Função para carregar os dados
+  function carregarDados() {
+    const dados = localStorage.getItem(STORAGE_KEY);
+    if (dados) {
+      return JSON.parse(dados);
+    }
+    return { total: 0, site: 0, modal: 0, historico: [] };
+  }
+
+  // Função para salvar os dados
+  function salvarDados(dados) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
+  }
+
+  // Função para registrar clique
+  function registrarClique(tipo, botao, pagina) {
+    const dados = carregarDados();
+    
+    const novoClique = {
+      data: new Date().toISOString(),
+      tipo: tipo,
+      botao: botao,
+      pagina: pagina || window.location.pathname
+    };
+    
+    dados.historico = dados.historico || [];
+    dados.historico.push(novoClique);
+    dados.total = (dados.total || 0) + 1;
+    
+    if (tipo === 'site') {
+      dados.site = (dados.site || 0) + 1;
+    } else if (tipo === 'modal') {
+      dados.modal = (dados.modal || 0) + 1;
+    }
+    
+    salvarDados(dados);
+    console.log(`✅ Clique registrado: ${tipo} - ${botao}`);
+  }
+
+  // Função para rastrear todos os cliques importantes
+  function iniciarRastreamento() {
+    console.log('🔍 Iniciando rastreamento de cliques...');
+    
+    // Rastrear cliques no botão da navbar
+    const btnNav = document.getElementById('btn-nav-cta');
+    if (btnNav) {
+      btnNav.addEventListener('click', function() {
+        registrarClique('site', 'Navbar - Garantir Promoção', window.location.pathname);
+      });
+    }
+    
+    // Rastrear clique no banner de promoção
+    const btnPromo = document.getElementById('btn-promo-banner');
+    if (btnPromo) {
+      btnPromo.addEventListener('click', function() {
+        registrarClique('site', 'Banner Promoção - Garantir Agora', window.location.pathname);
+      });
+    }
+    
+    // Rastrear clique no botão do curso
+    const btnCurso = document.getElementById('btn-curso');
+    if (btnCurso) {
+      btnCurso.addEventListener('click', function() {
+        registrarClique('site', 'Card Curso - Garantir Minha Vaga', window.location.pathname);
+      });
+    }
+    
+    // Rastrear clique no botão final CTA
+    const btnFinal = document.getElementById('btn-final-cta');
+    if (btnFinal) {
+      btnFinal.addEventListener('click', function() {
+        registrarClique('site', 'Final CTA - Garantir Minha Vaga', window.location.pathname);
+      });
+    }
+    
+    // Rastrear clique no contato do footer
+    const footerContact = document.getElementById('footer-contact');
+    if (footerContact) {
+      footerContact.addEventListener('click', function() {
+        registrarClique('site', 'Footer - Telefone', window.location.pathname);
+      });
+    }
+    
+    // Rastrear quando o modal é aberto
+    const modalOverlay = document.getElementById('modalPromocao');
+    if (modalOverlay) {
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.attributeName === 'class') {
+            if (modalOverlay.classList.contains('active')) {
+              registrarClique('site', 'Modal Aberto', window.location.pathname);
+            }
+          }
+        });
+      });
+      observer.observe(modalOverlay, { attributes: true });
+    }
+    
+    // Rastrear clique no botão WhatsApp dentro do modal
+    const modalWhatsBtn = document.getElementById('modal-whatsapp-btn');
+    if (modalWhatsBtn) {
+      modalWhatsBtn.addEventListener('click', function() {
+        registrarClique('modal', 'Modal - WhatsApp (Enviar Comprovante)', window.location.pathname);
+      });
+    }
+    
+    // Rastrear clique no botão fechar do modal
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', function() {
+        registrarClique('site', 'Modal Fechado', window.location.pathname);
+      });
+    }
+    
+    // Rastrear todos os links de navegação interna
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function() {
+        const target = this.getAttribute('href');
+        registrarClique('site', `Link Interno: ${target}`, window.location.pathname);
+      });
+    });
+    
+    console.log('✅ Rastreamento de cliques iniciado com sucesso!');
+  }
+
+  // ==================== FUNÇÕES DO SITE ====================
   // Contador Regressivo
   function atualizarContador() {
     const dataEvento = new Date('March 28, 2026 09:00:00').getTime();
@@ -1759,16 +1887,23 @@
     fecharModalPromocao();
   }
 
+  // Fechar modal ao clicar fora
   document.getElementById('modalPromocao').addEventListener('click', function(e) {
     if (e.target === this) fecharModalPromocao();
   });
 
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
+  });
+
+  // Iniciar rastreamento quando a página carregar
+  document.addEventListener('DOMContentLoaded', function() {
+    iniciarRastreamento();
   });
 </script>
 </body>
