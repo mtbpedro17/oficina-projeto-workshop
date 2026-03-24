@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Estatísticas de Cliques | CGP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --verde-escuro: #0c3b2a;
+    --verde-neon: #b5ff4d;
+    --verde-medio: #1f8a3c;
+    --laranja: #ff5e1a;
+    --branco: #f8f9fa;
+    --preto: #0a0c0b;
+    --cinza: #1b1f1d;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--preto) 0%, var(--cinza) 100%);
+    color: var(--branco);
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--verde-neon);
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header h1 i {
+    color: var(--verde-neon);
+  }
+
+  .header-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary {
+    background: var(--verde-neon);
+    color: var(--preto);
+  }
+
+  .btn-primary:hover {
+    background: var(--laranja);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .btn-danger {
+    background: #dc3545;
+    color: white;
+  }
+
+  .btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Cards de Estatísticas */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(181, 255, 77, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--verde-neon);
+  }
+
+  .stat-card .icon {
+    font-size: 2rem;
+    color: var(--verde-neon);
+    margin-bottom: 1rem;
+  }
+
+  .stat-card .value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-card .label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Tabela de Detalhes */
+  .details-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(181, 255, 77, 0.2);
+    margin-bottom: 2rem;
+  }
+
+  .details-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .details-section h2 i {
+    color: var(--verde-neon);
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  th {
+    color: var(--verde-neon);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  td {
+    font-size: 0.9rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .badge-site {
+    background: rgba(181, 255, 77, 0.2);
+    color: var(--verde-neon);
+  }
+
+  .badge-modal {
+    background: rgba(255, 94, 26, 0.2);
+    color: var(--laranja);
+  }
+
+  .no-data {
+    text-align: center;
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Gráfico Simples */
+  .chart-container {
+    margin-top: 1rem;
+  }
+
+  .chart-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .chart-label {
+    width: 80px;
+    font-size: 0.8rem;
+  }
+
+  .chart-bar-fill {
+    flex: 1;
+    height: 30px;
+    background: rgba(181, 255, 77, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .chart-bar-fill-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--verde-neon), var(--laranja));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: var(--preto);
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  .footer-info {
+    text-align: center;
+    padding-top: 2rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 1rem;
+    }
+
+    .header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    th, td {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1><i class="fas fa-chart-line"></i> Estatísticas de Cliques</h1>
+    <div class="header-buttons">
+      <button class="btn btn-secondary" onclick="atualizarDados()">
+        <i class="fas fa-sync-alt"></i> Atualizar
+      </button>
+      <button class="btn btn-primary" onclick="exportarDados()">
+        <i class="fas fa-download"></i> Exportar CSV
+      </button>
+      <button class="btn btn-danger" onclick="limparDados()">
+        <i class="fas fa-trash-alt"></i> Limpar Dados
+      </button>
+      <button class="btn btn-primary" onclick="window.location.href='index.html'">
+        <i class="fas fa-home"></i> Voltar ao Site
+      </button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-mouse-pointer"></i></div>
+      <div class="value" id="total-cliques">0</div>
+      <div class="label">Total de Cliques</div>
+    </div>
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-globe"></i></div>
+      <div class="value" id="cliques-site">0</div>
+      <div class="label">Cliques no Site</div>
+    </div>
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-window-restore"></i></div>
+      <div class="value" id="cliques-modal">0</div>
+      <div class="label">Cliques no Modal</div>
+    </div>
+    <div class="stat-card">
+      <div class="icon"><i class="fas fa-calendar-week"></i></div>
+      <div class="value" id="hoje">0</div>
+      <div class="label">Cliques Hoje</div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h2><i class="fas fa-chart-bar"></i> Cliques por Dia</h2>
+    <div class="chart-container" id="chart-daily"></div>
+  </div>
+
+  <div class="details-section">
+    <h2><i class="fas fa-list"></i> Histórico de Cliques</h2>
+    <div class="table-container">
+      <table id="tabela-cliques">
+        <thead>
+          <tr><th>Data/Hora</th><th>Tipo</th><th>Botão/Local</th><th>Página</th></tr>
+        </thead>
+        <tbody id="tabela-body">
+          <tr><td colspan="4" class="no-data">Nenhum clique registrado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer-info">
+    <i class="fas fa-info-circle"></i> Os dados são armazenados localmente no seu navegador.
+  </div>
+</div>
+
+<script>
+  // Chave para armazenamento no localStorage
+  const STORAGE_KEY = 'cgp_click_stats';
+
+  // Função para carregar os dados
+  function carregarDados() {
+    const dados = localStorage.getItem(STORAGE_KEY);
+    if (dados) {
+      return JSON.parse(dados);
+    }
+    return { total: 0, site: 0, modal: 0, historico: [] };
+  }
+
+  // Função para salvar os dados
+  function salvarDados(dados) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
+  }
+
+  // Função para atualizar a interface
+  function atualizarInterface() {
+    const dados = carregarDados();
+    
+    // Calcular total
+    const total = dados.total || 0;
+    const cliquesSite = dados.site || 0;
+    const cliquesModal = dados.modal || 0;
+    
+    // Cliques de hoje
+    const hoje = new Date().toLocaleDateString('pt-PT');
+    const cliquesHoje = dados.historico ? dados.historico.filter(item => {
+      const dataItem = new Date(item.data).toLocaleDateString('pt-PT');
+      return dataItem === hoje;
+    }).length : 0;
+    
+    // Atualizar cards
+    document.getElementById('total-cliques').textContent = total;
+    document.getElementById('cliques-site').textContent = cliquesSite;
+    document.getElementById('cliques-modal').textContent = cliquesModal;
+    document.getElementById('hoje').textContent = cliquesHoje;
+    
+    // Atualizar gráfico de cliques por dia
+    atualizarGrafico(dados.historico || []);
+    
+    // Atualizar tabela
+    atualizarTabela(dados.historico || []);
+  }
+  
+  // Função para atualizar o gráfico
+  function atualizarGrafico(historico) {
+    const chartContainer = document.getElementById('chart-daily');
+    
+    // Agrupar por dia
+    const dias = {};
+    historico.forEach(item => {
+      const data = new Date(item.data).toLocaleDateString('pt-PT');
+      if (!dias[data]) dias[data] = 0;
+      dias[data]++;
+    });
+    
+    // Pegar os últimos 7 dias
+    const ultimos7Dias = [];
+    const hoje = new Date();
+    for (let i = 6; i >= 0; i--) {
+      const data = new Date(hoje);
+      data.setDate(hoje.getDate() - i);
+      const dataStr = data.toLocaleDateString('pt-PT');
+      ultimos7Dias.push({
+        data: dataStr,
+        cliques: dias[dataStr] || 0
+      });
+    }
+    
+    const maxCliques = Math.max(...ultimos7Dias.map(d => d.cliques), 1);
+    
+    chartContainer.innerHTML = ultimos7Dias.map(dia => `
+      <div class="chart-bar">
+        <div class="chart-label">${dia.data}</div>
+        <div class="chart-bar-fill">
+          <div class="chart-bar-fill-inner" style="width: ${(dia.cliques / maxCliques) * 100}%">
+            ${dia.cliques > 0 ? dia.cliques : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+  
+  // Função para atualizar a tabela
+  function atualizarTabela(historico) {
+    const tbody = document.getElementById('tabela-body');
+    
+    if (historico.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="4" class="no-data">Nenhum clique registrado</td></tr>';
+      return;
+    }
+    
+    // Ordenar do mais recente para o mais antigo
+    const historicoOrdenado = [...historico].reverse();
+    
+    tbody.innerHTML = historicoOrdenado.slice(0, 100).map(item => `
+      <tr>
+        <td>${new Date(item.data).toLocaleString('pt-PT')}</td>
+        <td><span class="badge ${item.tipo === 'site' ? 'badge-site' : 'badge-modal'}">${item.tipo === 'site' ? 'Site' : 'Modal'}</span></td>
+        <td>${item.botao || '-'}</td>
+        <td>${item.pagina || '-'}</td>
+      </tr>
+    `).join('');
+  }
+  
+  // Função para exportar dados como CSV
+  function exportarDados() {
+    const dados = carregarDados();
+    const historico = dados.historico || [];
+    
+    const csvRows = [
+      ['Data/Hora', 'Tipo', 'Botão/Local', 'Página']
+    ];
+    
+    historico.forEach(item => {
+      csvRows.push([
+        new Date(item.data).toLocaleString('pt-PT'),
+        item.tipo === 'site' ? 'Site' : 'Modal',
+        item.botao || '-',
+        item.pagina || '-'
+      ]);
+    });
+    
+    const csvContent = csvRows.map(row => row.join(',')).join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `cliques_cgp_${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+  
+  // Função para limpar todos os dados
+  function limparDados() {
+    if (confirm('Tem certeza que deseja limpar todos os dados de cliques? Esta ação não pode ser desfeita.')) {
+      const dadosIniciais = { total: 0, site: 0, modal: 0, historico: [] };
+      salvarDados(dadosIniciais);
+      atualizarInterface();
+      alert('Dados limpos com sucesso!');
+    }
+  }
+  
+  // Função para atualizar dados (recarregar)
+  function atualizarDados() {
+    atualizarInterface();
+  }
+  
+  // Registrar clique (função que será chamada pelo site principal)
+  function registrarClique(tipo, botao, pagina) {
+    const dados = carregarDados();
+    
+    const novoClique = {
+      data: new Date().toISOString(),
+      tipo: tipo,
+      botao: botao,
+      pagina: pagina
+    };
+    
+    dados.historico = dados.historico || [];
+    dados.historico.push(novoClique);
+    dados.total = (dados.total || 0) + 1;
+    
+    if (tipo === 'site') {
+      dados.site = (dados.site || 0) + 1;
+    } else if (tipo === 'modal') {
+      dados.modal = (dados.modal || 0) + 1;
+    }
+    
+    salvarDados(dados);
+    
+    // Se a página admin estiver aberta, atualizar
+    if (typeof atualizarInterface === 'function') {
+      atualizarInterface();
+    }
+  }
+  
+  // Inicializar
+  atualizarInterface();
+  
+  // Expor funções globalmente
+  window.registrarClique = registrarClique;
+  window.exportarDados = exportarDados;
+  window.limparDados = limparDados;
+  window.atualizarDados = atualizarDados;
+</script>
+</body>
+</html>
